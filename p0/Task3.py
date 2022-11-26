@@ -54,7 +54,7 @@ for record in calls:
     if not '(080)' in from_num:
         continue
     if (' ' in receive_num):
-        receivers.append(receive_num[:3])
+        receivers.append(receive_num[:4])
 
     if ('(0' in receive_num):
         receivers.append(receive_num[receive_num.find('(')+1: receive_num.find(')')])
