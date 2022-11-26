@@ -57,7 +57,7 @@ for record in calls:
         receivers.append(receive_num[:3])
 
     if ('(0' in receive_num):
-        receivers.append(receive_num[1:4])
+        receivers.append(receive_num[receive_num.find('(')+1: receive_num.find(')')])
 
 for code in sorted(set(receivers)):
     print(code)
