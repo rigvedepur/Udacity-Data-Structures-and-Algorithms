@@ -42,20 +42,26 @@ All these steps are computed once for an input.
 
 <b>Part B:</b>
 
-In part B, the calls for fixed lien in Bangalore are already calculated in Part A. Therefore total run time complexity is still
-#### <b> O(n + nlogn) </b>
+In part B, for every call record, a counter is used to track both calling and receiving numbers that match the Bangalore code (080)
+Run time complexity for this step will be 
+#### <b> O(n) </b>
+
+Therefore total run time complexity is still
+#### <b> O(n + nlogn + n)
+#### O(2n +nlogn)</b>
 
 
 
 ## Task 4
 
-There are 3 main loops in this Task
+There are 4 main loops in this Task
 
 * In first loop, the program iterates over all texts. Run time complexity is O(n)
 * In second loop, the program iterates over all calls. Run time complexity is O(n)
-* The third loop is a sort loop. The run time complexity is O(nlogn)
+* In third loop, the program iterates over all calls. Run time complexity is O(n)
+* The 4th loop is a sort loop. The run time complexity is O(nlogn)
 
 Adding all these,
 
-#### <b>Total Run time complexity = O(n + n + nlogn)
-#### = O(2n +nlogn) </b>
+#### <b>Total Run time complexity = O(n + n + n + nlogn)
+#### = O(3n +nlogn) </b>

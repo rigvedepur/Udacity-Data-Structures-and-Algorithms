@@ -25,9 +25,9 @@ max_time = 0
 for record in calls:
     from_num, receive_num, time_spent = record[0], record[1], int(record[3])
     if from_num not in number_time_dict.keys():
-        number_time_dict[from_num] = time_spent
+        number_time_dict[from_num] = 0
     if receive_num not in number_time_dict.keys():
-        number_time_dict[receive_num] = time_spent
+        number_time_dict[receive_num] = 0
 
     number_time_dict[from_num] += time_spent
     number_time_dict[receive_num] += time_spent

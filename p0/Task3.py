@@ -47,25 +47,32 @@ The percentage should have 2 decimal digits
 
 # Part A
 receivers = []
-bangalore_receivers = []
+
 print('The numbers called by people in Bangalore have codes:')
 for record in calls:
     from_num, receive_num = record[0], record[1]
     if not '(080)' in from_num:
         continue
-    if (' ' in receive_num) and (receive_num not in receivers):
-        receivers.append(receive_num)
+    if (' ' in receive_num):
+        receivers.append(receive_num[:3])
 
-    if ('(0' in receive_num) and (receive_num not in receivers):
-        receivers.append(receive_num)
-        if ('(080)' in receive_num) and (receive_num not in bangalore_receivers):
-            bangalore_receivers.append(receive_num)
+    if ('(0' in receive_num):
+        receivers.append(receive_num[1:4])
 
-for number in sorted(receivers):
-    print(number)
+for code in sorted(set(receivers)):
+    print(code)
 
 # Part B
-print(f'{round(100*len(bangalore_receivers)/len(receivers), 2)} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.')
+bangalore_callers = 0
+bangalore_receivers = 0
+for record in calls:
+    if '(080)' in record[0]:
+        bangalore_callers += 1
+        if '(080)' in record[1]:
+            bangalore_receivers += 1
+
+
+print(f'{round(100*(bangalore_receivers)/bangalore_callers, 2)} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.')
 
 
 
